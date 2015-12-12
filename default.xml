@@ -2,12 +2,16 @@
 <manifest>
 
   <remote  name="aosp"
-           fetch=".." />
+           fetch="https://android.googlesource.com/" />
+
+  <remote  name="alexislg2"
+           fetch="https://github.com/alexislg2/" />
+
   <default revision="refs/tags/android-4.4.4_r1"
            remote="aosp"
            sync-j="4" />
 
-  <project path="build" name="platform/build" groups="pdk" >
+  <project path="build" name="build-target-product" groups="pdk" remote="alexislg2" revision="familinkframe-dev">
     <copyfile src="core/root.mk" dest="Makefile" />
   </project>
   <project path="abi/cpp" name="platform/abi/cpp" groups="pdk" />
@@ -27,7 +31,7 @@
   <project path="device/asus/flo" name="device/asus/flo" groups="device,flo" />
   <project path="device/asus/flo-kernel" name="device/asus/flo-kernel" groups="device,flo" />
   <project path="device/asus/grouper" name="device/asus/grouper" groups="device,grouper" />
-  <project path="device/asus/tilapia" name="device/asus/tilapia" groups="device,grouper" />
+  <project path="device/asus/tilapia" name="tilapia" groups="device,grouper" remote="alexislg2" revision="familinkframe-dev"/>
   <project path="device/common" name="device/common" />
   <project path="device/generic/armv7-a-neon" name="device/generic/armv7-a-neon" groups="pdk" />
   <project path="device/generic/common" name="device/generic/common" groups="pdk" />
@@ -415,7 +419,7 @@
   <project path="prebuilts/sdk" name="platform/prebuilts/sdk" groups="pdk" />
   <project path="prebuilts/tools" name="platform/prebuilts/tools" groups="pdk,tools" />
   <project path="sdk" name="platform/sdk" />
-  <project path="system/core" name="platform/system/core" groups="pdk" />
+  <project path="system/core" name="system-core" remote="alexislg2" revision="familinkframe-dev" groups="pdk" />
   <project path="system/extras" name="platform/system/extras" groups="pdk" />
   <project path="system/media" name="platform/system/media" groups="pdk" />
   <project path="system/netd" name="platform/system/netd" groups="pdk" />
